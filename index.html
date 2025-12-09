@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vivek Kumar Jaiswal — Portfolio</title>
+  <meta name="description" content="Portfolio of Vivek Kumar Jaiswal — Programmer, Networking Specialist, Data Analyst, and Developer." />
+  <meta name="keywords" content="Vivek Kumar Jaiswal, Portfolio, Developer, Programmer, Networking, SQL, React, Power BI, Python" />
+  <meta name="author" content="Vivek Kumar Jaiswal" />
+
+  <style>
+    :root{--bg:#0a0f1a;--card:#0f1724;--muted:#94a3b8;--text:#e6eef6;--primary:#38bdf8}
+    .light{--bg:#f8fafc;--card:#ffffff;--muted:#475569;--text:#071024;--primary:#0ea5e9}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;background:var(--bg);color:var(--text);transition:background .3s,color .3s}
+    a{color:inherit}
+
+    /* NAVBAR */
+    .navbar{position:fixed;inset:0 0 auto 0;display:flex;justify-content:space-between;align-items:center;padding:14px 28px;background:rgba(2,6,23,0.6);backdrop-filter:blur(6px);z-index:60;border-bottom:1px solid rgba(255,255,255,0.03)}
+    .brand{font-weight:700;color:var(--primary);font-size:18px}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .navlinks a{padding:8px 10px;border-radius:8px;text-decoration:none;color:var(--text);transition:all .18s}
+    .navlinks a:hover{background:rgba(255,255,255,0.02);color:var(--primary)}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:8px;color:var(--primary);cursor:pointer}
+
+    /* HERO */
+    .hero{padding:110px 20px 60px;text-align:center;background:linear-gradient(135deg,#0b2a4a,#071022);overflow:hidden}
+    .hero h1{font-size:36px;margin:0 0 12px;letter-spacing:0.3px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .typing{display:inline-block;white-space:nowrap;border-right:3px solid var(--primary);overflow:hidden;width:24ch;animation:typing 3.2s steps(24,end),blink .7s step-end infinite}
+    @keyframes typing{from{width:0}to{width:24ch}}@keyframes blink{50%{border-color:transparent}}
+
+    .container{max-width:1100px;margin:26px auto;padding:28px}
+    h2{font-size:22px;margin:0 0 12px;color:var(--text)}
+    .muted{color:var(--muted)}
+
+    /* GRID SECTIONS */
+    .grid{display:grid;gap:18px}
+    .skills-grid{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+    .projects{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .cert-grid{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+    /* CARDS */
+    .card{background:var(--card);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .25s,box-shadow .25s}
+    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(2,6,23,0.6)}
+    .skill{padding:14px;text-align:center;font-weight:600}
+
+    /* PROJECT TILT */
+    .project-card{overflow:hidden}
+    .project-inner{padding:18px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border-radius:10px;transition:transform .2s}
+
+    /* CERTIFICATES */
+    .cert-card{cursor:pointer}
+    .cert-card img{width:100%;height:160px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.04);transition:transform .25s}
+    .cert-info{margin-top:10px}
+    .cert-title{font-weight:700}
+    .cert-sub{color:var(--muted);font-size:13px}
+
+    /* LIGHTBOX */
+    #lightbox{display:none;position:fixed;inset:0;background:rgba(2,6,23,0.8);backdrop-filter:blur(4px);align-items:center;justify-content:center;z-index:120}
+    #lightbox img{max-width:92%;max-height:92%;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,0.6)}
+
+    /* FLOAT BUTTON */
+    .float{position:fixed;right:20px;bottom:20px;background:var(--primary);color:#001;display:inline-flex;align-items:center;justify-content:center;width:54px;height:54px;border-radius:50%;box-shadow:0 10px 30px rgba(2,6,23,0.5);z-index:70;text-decoration:none}
+
+    footer{margin-top:26px;padding:26px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Responsive tweaks */
+    @media (max-width:720px){.hero h1{font-size:26px}.typing{width:18ch}}
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="brand">Vivek Kumar Jaiswal</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+      <button class="btn" id="themeToggle">Light</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1><span class="typing">I build reliable solutions with code</span></h1>
+    <p class="muted">Programmer • Networking • Data | Python • JS • SQL • Power BI</p>
+    <a href="Vivek_Resume.pdf" download class="btn" style="margin-top:14px;display:inline-block">Download Resume</a>
+  </header>
+
+  <main class="container" id="main">
+
+    <!-- ABOUT -->
+    <section id="about" data-animate>
+      <h2>About Me</h2>
+      <div class="card" style="margin-top:12px">
+        <p>I am an enthusiastic developer and networking professional who loves building practical applications, analyzing data, and automating workflows. Experienced with Python, JavaScript, React, SQL, Power BI and networking fundamentals. I enjoy learning new technologies and applying them to real projects.</p>
+        
+          </div>
+        </div>
+        </div>
+
+        
+        
+        </div>
+
+
+    <!-- SKILLS -->
+    <section id="skills" style="margin-top:26px" data-animate>
+      <h2>Skills</h2>
+      <div class="grid skills-grid" style="margin-top:12px">
+        <div class="card skill">Python</div>
+        <div class="card skill">JavaScript</div>
+        <div class="card skill">React</div>
+        <div class="card skill">SQL / MySQL / T-SQL</div>
+        <div class="card skill">Networking</div>
+        <div class="card skill">Power BI</div>
+        <div class="card skill">Excel</div>
+        <div class="card skill">APIs & Automation</div>
+        <div class="card skill">HTML</div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" style="margin-top:26px" data-animate>
+      <h2>Projects</h2>
+      <div class="grid projects" style="margin-top:12px">
+
+        <div class="card project-card" data-tilt>
+          <div class="project-inner">
+            <h3>React App — Workshop</h3>
+            <p class="muted">Built a SPA using components, routing, and hooks — deployed on GitHub Pages.</p>
+            <p style="margin-top:6px"><strong>Tech:</strong> React, JS, HTML, CSS</p>
+          </div>
+        </div>
+
+        <div class="card project-card" data-tilt>
+          <div class="project-inner">
+            <h3>SQL Database System</h3>
+            <p class="muted">Designed student & college schema, stored procedures and reports using T-SQL.</p>
+            <p style="margin-top:6px"><strong>Tech:</strong> MySQL, SQL Server</p>
+          </div>
+        </div>
+
+        <div class="card project-card" data-tilt>
+          <div class="project-inner">
+            <h3>Power BI Dashboards</h3>
+            <p class="muted">Created interactive sales and KPI dashboards for business insights.</p>
+            <p style="margin-top:6px"><strong>Tech:</strong> Power BI, DAX, Excel</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certificates" style="margin-top:26px" data-animate>
+      <h2>Certificates</h2>
+      <p class="muted" style="margin-top:8px">All certificates — click any image to open full-size. Download links available on each card.</p>
+
+      <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" onclick="filterAll()">Show All</button>
+        <button class="btn" onclick="filterCategory('ai')">AI / ML</button>
+        <button class="btn" onclick="filterCategory('data')">Data</button>
+        <button class="btn" onclick="filterCategory('devops')">DevOps</button>
+        <button class="btn" onclick="filterCategory('web')">Web</button>
+        <button class="btn" onclick="filterCategory('systems')">Systems</button>
+      </div>
+
+      <div class="grid cert-grid" style="margin-top:12px" id="allCerts">
+
+        <!-- 1: CompTIA A+ & N+ (keep) -->
+        <div class="card cert-card" data-cat="systems">
+          <img src="A+ & N+.jpg" alt="CompTIA A+ & N+">
+          <div class="cert-info">
+            <div class="cert-title">CompTIA A+ &amp; N+</div>
+            <div class="cert-sub">CIMAGE Group — Networking</div>
+            <div style="margin-top:8px"><a class="btn" href="A+ & N+.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 2: Big Data & Generative AI (NIT Patna) -->
+        <div class="card cert-card" data-cat="ai">
+          <img src="Big Data Generative AI certificate(1).jpg" alt="Big Data & Generative AI">
+          <div class="cert-info">
+            <div class="cert-title">Big Data &amp; Generative AI</div>
+            <div class="cert-sub">NIT Patna — FDP (07 Jul — 16 Jul 2025)</div>
+            <div style="margin-top:8px"><a class="btn" href="Big Data Generative AI certificate(1).jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 3: Data Science — IIT Patna (Techgyan) -->
+        <div class="card cert-card" data-cat="data">
+          <img src="DataScience iit patna certificate(1).jpg" alt="Data Science IIT Patna">
+          <div class="cert-info">
+            <div class="cert-title">Data Science Workshop</div>
+            <div class="cert-sub">IIT Patna — Techgyan</div>
+            <div style="margin-top:8px"><a class="btn" href="DataScience iit patna certificate(1).jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 4: DevOps Workshop -->
+        <div class="card cert-card" data-cat="devops">
+          <img src="DevOps certificate(1).jpg" alt="DevOps Workshop CIMAGE">
+          <div class="cert-info">
+            <div class="cert-title">DevOps Workshop</div>
+            <div class="cert-sub">CIMAGE Group — 6‑Day Training</div>
+            <div style="margin-top:8px"><a class="btn" href="DevOps certificate(1).jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 5: Python — IIT Bombay -->
+        <div class="card cert-card" data-cat="web">
+          <img src="python certificate...jpg" alt="Python — IIT Bombay">
+          <div class="cert-info">
+            <div class="cert-title">Python Programming (3.4.3)</div>
+            <div class="cert-sub">IIT Bombay — Spoken Tutorial</div>
+            <div style="margin-top:8px"><a class="btn" href="python certificate...jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 6: Agentic AI (CIMAGE) -->
+        <div class="card cert-card" data-cat="ai">
+          <img src="Agentic AI certificate(1).jpg" alt="Agentic AI">
+          <div class="cert-info">
+            <div class="cert-title">Agentic AI Workshop</div>
+            <div class="cert-sub">CIMAGE Group — AI</div>
+            <div style="margin-top:8px"><a class="btn" href="Agentic AI certificate(1).jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 7: C Language (IIT Bombay / Spoken Tutorial) -->
+        <div class="card cert-card" data-cat="systems">
+          <img src="C language certificate.jpg" alt="C Language certificate">
+          <div class="cert-info">
+            <div class="cert-title">C Programming</div>
+            <div class="cert-sub">IIT Bombay — Spoken Tutorial / CIMAGE</div>
+            <div style="margin-top:8px"><a class="btn" href="C language certificate.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 8: C++ (IIT Bombay) -->
+        <div class="card cert-card" data-cat="systems">
+          <img src="Cpp certificate.jpg" alt="C++ certificate">
+          <div class="cert-info">
+            <div class="cert-title">C++ Programming</div>
+            <div class="cert-sub">IIT Bombay — Spoken Tutorial</div>
+            <div style="margin-top:8px"><a class="btn" href="Cpp certificate.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!--  HTML (IIT Bombay) -->
+        <div class="card cert-card" data-cat="web">
+          <img src="HTML certificate.jpg" alt="HTML certificate">
+          <div class="cert-info">
+            <div class="cert-title">HTML Training</div>
+            <div class="cert-sub">IIT Bombay — Spoken Tutorial</div>
+            <div style="margin-top:8px"><a class="btn" href="HTML certificate.jpg" download>Download</a></div>
+          </div>
+        </div>
+        
+        <!-- 9: CSS (IIT Bombay) -->
+        <div class="card cert-card" data-cat="web">
+          <img src="CSS certificate.jpg" alt="CSS certificate">
+          <div class="cert-info">
+            <div class="cert-title">CSS Training</div>
+            <div class="cert-sub">IIT Bombay — Spoken Tutorial</div>
+            <div style="margin-top:8px"><a class="btn" href="CSS certificate.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 10: Data Science with Power BI (CIMAGE) -->
+        <div class="card cert-card" data-cat="data">
+          <img src="Data science and power BI certificate(1).jpg" alt="Data Science with Power BI">
+          <div class="cert-info">
+            <div class="cert-title">Data Science with Power BI</div>
+            <div class="cert-sub">CIMAGE — Power BI</div>
+            <div style="margin-top:8px"><a class="btn" href="Data science and power BI certificate(1).jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 11: Django Workshop -->
+        <div class="card cert-card" data-cat="web">
+          <img src="Django workshop certificate.jpg" alt="Django Workshop">
+          <div class="cert-info">
+            <div class="cert-title">Django Workshop</div>
+            <div class="cert-sub">CIMAGE / SSSAPTM — Web Development</div>
+            <div style="margin-top:8px"><a class="btn" href="Django workshop certificate.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 12: IBM Cybersecurity Fundamentals -->
+        <div class="card cert-card" data-cat="systems">
+          <img src="IBM fundamental certificate.jpg" alt="IBM Cybersecurity Fundamentals">
+          <div class="cert-info">
+            <div class="cert-title">Cybersecurity Fundamentals</div>
+            <div class="cert-sub">IBM SkillsBuild — Credential</div>
+            <div style="margin-top:8px"><a class="btn" href="IBM fundamental certificate.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 13: Linux Training -->
+        <div class="card cert-card" data-cat="systems">
+          <img src="Linux certificate.jpg" alt="Linux Training">
+          <div class="cert-info">
+            <div class="cert-title">Linux Training</div>
+            <div class="cert-sub">EduPyramids / IIT Spoken Tutorial</div>
+            <div style="margin-top:8px"><a class="btn" href="Linux certificate.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 14: Machine Learning & AI (CIMAGE) -->
+        <div class="card cert-card" data-cat="ai">
+          <img src="Machine language & Artificial Intelligence.jpg" alt="Machine Learning & AI">
+          <div class="cert-info">
+            <div class="cert-title">Machine Learning &amp; Artificial Intelligence</div>
+            <div class="cert-sub">CIMAGE — ML/AI Workshop</div>
+            <div style="margin-top:8px"><a class="btn" href="Machine language & Artificial Intelligence.jpg" download>Download</a></div>
+          </div>
+        </div>
+
+        <!-- 15: React Masterclass (WsCube Tech) -->
+        <div class="card cert-card" data-cat="web">
+          <img src="react js certificate(1).jpg" alt="React Masterclass">
+          <div class="cert-info">
+            <div class="cert-title">React Masterclass — E‑Commerce App</div>
+            <div class="cert-sub">WsCube Tech — Workshop</div>
+            <div style="margin-top:8px"><a class="btn" href="react js certificate(1).jpg" download>Download</a></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <script>
+      function filterAll(){document.querySelectorAll('#allCerts .card').forEach(c=>c.style.display='block')}
+      function filterCategory(cat){
+        document.querySelectorAll('#allCerts .card').forEach(c=>{
+          const cc=c.getAttribute('data-cat')||'';
+          c.style.display = (cc===cat)?'block':'none';
+        })
+      }
+      // quick lightbox: open image in new tab when clicked
+      document.getElementById('allCerts').addEventListener('click', e=>{
+        const card = e.target.closest('.card'); if(!card) return;
+        const img = card.querySelector('img'); if(img) window.open(img.src, '_blank');
+      });
+    </script>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:32px" data-animate>
+      <h2>Contact</h2>
+      <div class="card" style="margin-top:12px">
+        <p><strong>Mobile:</strong> 7366982299</p>
+  <p><strong>Email:</strong> <a href="mailto:vivekkumarjaiswal56@gmail.com">vivekkumarjaiswal56@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/vivek-kumar-jaiswal-5ba7112b4" target="_blank">View profile</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/VivekBscit?tab=repositories" target="_blank">VivekBscit</a></p>
+      </div>
+    </section>
+
+    <footer>© <span id="year"></span> Vivek Kumar Jaiswal — All Rights Reserved</footer>
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" onclick="closeLight()"><img id="lightboxImg" alt="certificate"></div>
+
+  <!-- FLOAT CONTACT -->
+  <a class="float" href="mailto:vivekkumarjaiswal56@gmail.com" title="Email">✉</a>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Lightbox
+    function openLight(src){document.getElementById('lightboxImg').src = src;document.getElementById('lightbox').style.display='flex'}
+    function closeLight(){document.getElementById('lightbox').style.display='none'}
+
+    // Theme toggle
+    const themeBtn = document.getElementById('themeToggle');
+    themeBtn.addEventListener('click', ()=>{
+      const isLight = document.documentElement.classList.toggle('light');
+      themeBtn.textContent = isLight ? 'Dark' : 'Light';
+    });
+
+    // Simple tilt effect for elements with data-tilt
+    document.querySelectorAll('[data-tilt]').forEach(el=>{
+      el.addEventListener('mousemove', e=>{
+        const r = el.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width/2) / r.width;
+        const y = (e.clientY - r.top - r.height/2) / r.height;
+        el.style.transform = `rotateX(${ -y*6 }deg) rotateY(${ x*6 }deg)`;
+      });
+      el.addEventListener('mouseleave', ()=>{el.style.transform='rotateX(0) rotateY(0)'});
+    });
+
+    // Scroll reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('active');});
+    },{threshold:0.12});
+    document.querySelectorAll('[data-animate]').forEach(el=>io.observe(el));
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click', e=>{
+      e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth',block:'start'});
+    }));
+  </script>
+</body>
+</html>
